@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Interfaces\TweetRepositoryInterface;
+use App\Repositories\TweetRespository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
