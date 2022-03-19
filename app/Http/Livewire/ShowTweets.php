@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Tweet;
 use App\Services\TweetService;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,10 +14,10 @@ class ShowTweets extends Component
 
     protected $tweetService;
 
-    public $message = 'Apenas um teste';
+    public $content = 'Apenas um teste';
 
     protected $rules = array(
-        'message' => 'required|min:3|max:255',
+        'content' => 'required|min:3|max:255',
     );
 
     public function boot(TweetService $tweetService){
@@ -35,10 +34,10 @@ class ShowTweets extends Component
         $this->validate();
 
         auth()->user()->tweets()->create([
-            'content' => $this->message
+            'content' => $this->content
         ]);
 
-        $this->message = '';
+        $this->content = '';
     }
 
     public function like(Tweet $tweet){
